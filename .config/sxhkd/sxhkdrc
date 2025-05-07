@@ -1,0 +1,59 @@
+# ----- Apps ----- #
+
+# Apps
+super + Escape
+    rofi -show drun
+
+# Terminal
+super + alt + t
+    kitty
+    
+# Browser
+super + b
+    librewolf
+
+# Reload sxhkd Keybinds
+super + shift + Escape
+	pkill -USR1 -x sxhkd; dunstify -u low -i ~/.config/bspwm/src/assets/reload.svg 'sxhkd' 'The configuration file has been reloaded successfully!'
+
+# Spotify || Telegram || Discord
+super + {s, t, d}
+	{spotify, Telegram, discord}
+
+# Manage brightness
+XF86MonBrightness{Up,Down}
+	sh Brightness {up,down}
+
+# Volume control
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	Volume{ --inc, --dec, --toggle}
+
+# Hide/Show Bar (Polybar and/or eww)
+super + alt + {h,u}
+	HideBar {-h,-u}
+
+#Screenshot
+Print
+    flameshot gui
+
+# Change layout
+ctrl + z
+    ~/.config/change_layout.sh
+
+# ----- Bspwm ----- #
+
+# BSPWM quit
+super + shift + q
+    bspc quit
+
+# Kill
+super + c
+	bspc node -c
+
+# Reload BSPWM
+super + alt + r
+	bspc wm -r
+
+# Workspace
+super + {1-9}
+    bspc desktop -f ^{1-9}

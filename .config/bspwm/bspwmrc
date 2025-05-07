@@ -1,0 +1,6 @@
+#!/bin/bash
+sxhkd &
+picom --config ~/.config/picom/picom.conf &
+~/.config/polybar/launch.sh &
+feh --bg-scale ~/Pictures/wallpapers/wall-01.webp
+bspc monitor -d I II III IV V VI
