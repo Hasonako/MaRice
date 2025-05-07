@@ -18,7 +18,7 @@ super + shift + Escape
 
 # Spotify || Telegram || Discord
 super + {s, t, d}
-	{spotify, Telegram, discord}
+	{spotify, telegram-desktop, discord}
 
 # Manage brightness
 XF86MonBrightness{Up,Down}
@@ -32,13 +32,16 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 super + alt + {h,u}
 	HideBar {-h,-u}
 
-#Screenshot
-Print
-    flameshot gui
-
 # Change layout
 ctrl + z
     ~/.config/change_layout.sh
+
+#Screenshot
+Print
+    flameshot full -c
+
+super + shift + s
+    flameshot gui
 
 # ----- Bspwm ----- #
 
@@ -57,3 +60,31 @@ super + alt + r
 # Workspace
 super + {1-9}
     bspc desktop -f ^{1-9}
+
+# ----- Focus/Swap Nodes ----- #
+
+# Rotate desktop
+super + Tab
+	bspc node @/ --rotate {90,-90}
+
+# Switch workspace
+super + {Left,Right}
+	bspc desktop -f {prev,next}
+
+# Send focused Node to workspace directionally
+super + ctrl + {Left,Right}
+	bspc node -d {prev,next} '--follow'
+
+# Resize window with mouse (hold super + right-click)
+super + button3
+    bspc node -r
+
+# ----- Expand/Shrink Nodes ----- #
+
+# Focus window in direction
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# Resize tiled windows only
+super + alt + {Left,Down,Up,Right}
+    bspc node -z {left -20 0,down 0 20,up 0 -20,right 20 0}
