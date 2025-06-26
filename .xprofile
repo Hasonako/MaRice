@@ -1,0 +1,4 @@
+export XCURSOR_THEME=Bibata-Modern-Ice
+export XCURSOR_SIZE=16
+export GTK_THEME=Adwaita-dark
+export ICON_THEME=Papirus

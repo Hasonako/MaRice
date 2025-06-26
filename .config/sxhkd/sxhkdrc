@@ -1,3 +1,7 @@
+# Reload sxhkd Keybinds
+super + shift + Escape
+	pkill -USR1 -x sxhkd; dunstify -u low -i ~/.config/bspwm/src/assets/reload.svg 'sxhkd' 'The configuration file has been reloaded successfully!'
+
 # ----- Apps ----- #
 
 # Apps
@@ -5,36 +9,43 @@ super + Escape
     rofi -show drun
 
 # Terminal
-super + alt + t
+super + Return
     kitty
-    
-# Browser
-super + b
-    librewolf
 
-# Reload sxhkd Keybinds
-super + shift + Escape
-	pkill -USR1 -x sxhkd; dunstify -u low -i ~/.config/bspwm/src/assets/reload.svg 'sxhkd' 'The configuration file has been reloaded successfully!'
+# Start Apps
+super + shift + {s, t, d, g, c, b, e}
+	{spotify, Telegram, discord, steam, code, librewolf, thunar}
 
-# Spotify || Telegram || Discord
-super + {s, t, d}
-	{spotify, telegram-desktop, discord}
+# Vol Inc
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 
-# Manage brightness
-XF86MonBrightness{Up,Down}
-	sh Brightness {up,down}
+# Vol Dic
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-# Volume control
-XF86Audio{RaiseVolume,LowerVolume,Mute}
-	Volume{ --inc, --dec, --toggle}
+# Mute
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# Hide/Show Bar (Polybar and/or eww)
+# Brightness up
+XF86MonBrightnessUp
+	brightnessctl set +10%
+
+# Brightness down
+XF86MonBrightnessDown
+	brightnessctl set -10%
+
+#Hide/Show Bar
 super + alt + {h,u}
 	HideBar {-h,-u}
 
 # Change layout
-ctrl + z
-    ~/.config/change_layout.sh
+Alt_L + shift
+    ~/.bin/change_layout.sh
+
+Shift_L + alt
+    ~/.bin/change_layout.sh
 
 #Screenshot
 Print
@@ -45,21 +56,35 @@ super + shift + s
 
 # ----- Bspwm ----- #
 
-# BSPWM quit
-super + shift + q
-    bspc quit
+# quit/restart bspwm
+ctrl + shift + {q,r}
+    bspc {quit,wm -r}
 
-# Kill
+# Select window to close
+ctrl + super + alt + k
+	{xkill}
+
+# close and kill
 super + c
-	bspc node -c
-
-# Reload BSPWM
-super + alt + r
-	bspc wm -r
+    bspc node -c
 
 # Workspace
 super + {1-9}
     bspc desktop -f ^{1-9}
+
+# Lockscreen
+super + shift + l
+    ~/.bin/lock.sh
+
+# Expanding windows
+super + control {h,j,k,l}
+    bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
+
+super + button1
+    ~/.bin/resize_corner.sh
+
+super + @button1
+    ~/.bin/float_and_drag.sh
 
 # ----- Focus/Swap Nodes ----- #
 
