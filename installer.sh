@@ -35,28 +35,25 @@ case $vid in
 esac
 
 # install xorg if not installed
-sudo pacman -S --noconfirm --needed rofi feh xorg xorg-xinit xorg-xinput $DRI xmonad
+sudo pacman -S --noconfirm --needed rofi feh xorg xorg-xinit xorg-xinput $DRI
 fc-cache -f
 clear
 
 # install main packeges
-sudo pacman -S --noconfirm --needed \
-	bspwm sxhkd picom polybar micro papirus-icon-theme thunar gvfs xsettingsd gnome-themes-extra \
-  	lxappearance kitty flameshot ttf-jetbrains-mono-nerd noto-fonts-cjk noto-fonts-emoji xclip clipmenu dunst \
-  	pipewire pipewire-alsa pipewire-pulse pipewire-jack \
-  	wireplumber alsa-utils pavucontrol || echo "Ошибка установки пакетов"
+sudo pacman -S --noconfirm --needed $(cat packages.txt) || echo "Ошибка установки пакетов"
 
-if ! command -v aur &> /dev/null
-then
-    echo "It seems that you don't have aur installed, I'll install that for you before continuing."
-	git clone https://aur.archlinux.org/aur.git ~/.config/aur
-	(cd ~/.config/aur/ && makepkg -si )
+if ! command -v yay &> /dev/null; then
+    echo "Installing yay..."
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    cd /tmp/yay && makepkg -si --noconfirm
+    cd -
 fi
 
 # AUR пакеты
 yay -S --needed --noconfirm --answerdiff=None --answerclean=None --answeredit=None --answerupgrade=None \
- librewolf spotify i3lock-color bibata-cursor-theme || echo "Ошибка установки AUR пакетов"
+ $(cat packages.txt) || echo "Ошибка установки AUR пакетов"
 
+mkdir -p ~/.config ~/.bin ~/Pictures
 cp -r .config ~/ || echo "Ошибка копирования конфига"
 cp -r Wallpapers ~/Pictures/ || echo "Ошибка копирования обоев"
 

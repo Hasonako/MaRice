@@ -1,0 +1,4 @@
+librewolf 
+spotify 
+i3lock-color 
+bibata-cursor-theme

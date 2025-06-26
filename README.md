@@ -1,16 +1,22 @@
-<h1 align="center"> :herb: Hasonako Build :herb: </h1>
+<h1 align="center"> 🍃 Hasonako Build 🍃 </h1>
 
 <!-- INFORMATION -->
+### 📝 Intro
+
+This is a very early version of my rice — I’ve just switched to Linux.
+And yes, I started with Arch Linux and BSPWM.
+
+The setup is a patchwork of inspiration from around the community, with clear influence from [Zproger](https://github.com/Zproger).  
+I'm slowly shaping it into something more personal.  
+(Even this README was put together with the help of his layout.)
+
+> ⚠️ Warning: This installer modifies your existing config and installs many packages. Use on a clean Arch setup.  
+
 <h1 align="left"> :blue_book: About</h1> 
 
 <img src="Screenshots/screen1.png" alt="rice" align="right" width="500px">
 
 </br>
-This is still a very early version of my rice — I’ve just made the switch to Linux.
-And yeah, I chose Arch Linux with BSPWM as my first distro.
-This setup is a patchwork of inspiration from all over, with some clear influence from Zproger.
-Slowly shaping it into something personal.
-(Even this README was put together with some help from his work.)
 
  - OS: [**`Arch Linux`**](https://archlinux.org/)
  - WM: [**`BSPWM`**](https://github.com/baskerville/bspwm)
@@ -23,10 +29,10 @@ Slowly shaping it into something personal.
 </br>
 
 <!-- IMAGES -->
-## 🖼️ Gallery
-![gallery](Screenshots/screen1.png)
-![gallery](Screenshots/screen2.png)
-![gallery](Screenshots/screen3.png)
+### 🖼️ Gallery
+
+| ![1](Screenshots/screen1.png) | ![2](Screenshots/screen2.png) | ![3](Screenshots/screen3.png) |
+|---|---|---|
 
 <!-- INSTALLATION -->
 ## :blue_book: Installation

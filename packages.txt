@@ -1,0 +1,25 @@
+bspwm 
+sxhkd 
+picom 
+polybar 
+micro 
+papirus-icon-theme 
+thunar 
+gvfs 
+xsettingsd 
+gnome-themes-extra
+lxappearance 
+kitty 
+flameshot 
+ttf-jetbrains-mono-nerd 
+noto-fonts-cjk 
+noto-fonts-emoji 
+xclip 
+clipmenu 
+dunst
+pipewire pipewire-alsa 
+pipewire-pulse 
+pipewire-jack
+wireplumber 
+alsa-utils 
+pavucontrol
